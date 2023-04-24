@@ -1,0 +1,16 @@
+{
+  "name": "retrieve-github-repos-block",
+  "description": "retrieve your public github repositories to show as a portfolio",
+  "version": "1.0.0",
+  "author": "Sarah Siqueira",
+  "license": "ISC",
+  "main": "index.js",
+  "scripts": {
+    "start": "wp-scripts start",
+    "build": "wp-scripts build"
+  },
+  "devDependencies": {
+    "@wordpress/scripts": "26.1.0",
+    "react-router-dom": "^6.10.0"
+  }
+}

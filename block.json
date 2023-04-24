@@ -1,0 +1,19 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 2,
+    "title": "Retrieve Github Repos Block",
+    "name": "retrievegithub/githubportfolio",
+    "description": "A block to retrieve your public github repositories and show them as a portfolio",
+    "version": "0.0.1",
+    "icon": "networking",
+    "category": "design",
+    "attributes": {
+        "githubuser": { 
+            "type": "string" 
+        }
+    },
+    "keywords": [ "basic", "model" ],
+    "editorScript": "file:./build/index.js",
+    "editorStyle": "file:./styles/editor.css",
+	"style": "file:./styles/style.css"
+}
