@@ -9,15 +9,11 @@
     "category": "design",
     "attributes": {
         "githubuser": { 
-            "default": "Wholesome Plugin – hello from the editor!",
             "type": "string" 
-        },
-        "gitname": {
-            "type": "string"
         }
     },
     "keywords": [ "basic", "model" ],
     "editorScript": "file:./build/index.js",
     "editorStyle": "file:./styles/editor.css",
-	"style": "file:./styles/style.css"
+	"style": "file:./src/styles/style.css"
 }

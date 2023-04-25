@@ -1,14 +1,8 @@
-/* Style */
-import '../styles/style.css';
-
-/* WordPress Dependencies */
+import './styles/style.css';
 import { registerBlockType } from '@wordpress/blocks';
 
-
-/* Imports */
 import Edit from './edit';
 import metadata from '../block.json';
-
 
 registerBlockType( 
 	metadata, {

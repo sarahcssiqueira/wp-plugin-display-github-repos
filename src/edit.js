@@ -3,7 +3,7 @@ import React from 'react';
 import { __ } from '@wordpress/i18n';
 import { useBlockProps, RichText } from '@wordpress/block-editor';
 
-import '../styles/editor.css';
+import './styles/editor.css';
 
 
 const Edit = ({ attributes, setAttributes }) => {
