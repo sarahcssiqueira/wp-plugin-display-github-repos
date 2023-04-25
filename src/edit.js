@@ -12,8 +12,14 @@ const Edit = ({ attributes, setAttributes }) => {
 
 	return (
 		<div {...useBlockProps()}>
-			<div className="setUpYourGitHubURL">
-				<h2 className='color'>Github User</h2>
+			<div className="edit">
+				<h3>Github User </h3>
+
+				<p>
+					Just set up your github username below, and the block will easily display your public 
+					Github repositories.
+				</p>
+
 				<RichText
 					value={ githubuser }
 					onChange={( githubuser ) => setAttributes( { githubuser } )}

@@ -1,7 +1,8 @@
 export default function Frontend() {
 	return (
     <>
-      For a dynamic blocks, is a better aproach use php to render the fronted
+      For static blocks we use JavaScript to render the block into the content, but for dynamic blocks, 
+      is a better approach use PHP to render.
     </>       
 	);
 }

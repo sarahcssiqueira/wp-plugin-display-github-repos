@@ -1,4 +1,3 @@
-import './styles/style.css';
 import { registerBlockType } from '@wordpress/blocks';
 
 import Edit from './edit';

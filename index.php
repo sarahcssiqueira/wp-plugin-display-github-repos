@@ -3,7 +3,7 @@
  * Plugin Name:       Retrieve Github Repos Block
  * Author:            Sarah Siqueira
  * Author URI:        sarahjobs.com
- * Description:       Gutenberg block to retrieve your public github repositories and show them as a portfolio
+ * Description:       Gutenberg block to retrieve your public github repositories and show them as a portfolio. Used for millions of developers around the globe, Github does not require a presentation. Easily display your public Github repositories, just set up your github username below.
  * Version:           0.2.0
  * Requires at least: 5.9
  * Requires PHP:      7.0
@@ -23,11 +23,6 @@ function retrieve_github_block() {
                 'type'    => 'string',
               ],
             ],
-
-        /* 'render_callback' => function( $attributes, $content ) {
-            $github_user = esc_html( $attributes['githubuser'] );
-            return "$github_user";
-        },*/
 
         'render_callback' => 'render_retrieved_github_repos',
         ]
@@ -73,30 +68,30 @@ function render_retrieved_github_repos( $attributes, $content ) {
 
         <?php foreach ( $repositories as $repo ): ?>
             
-            <article class="article">
+            <article class="">
                 
                 <a 
                     href="<?php echo $repo["svn_url"]?>"
-                    class="fc-accent fw-bold text-center">
+                    class="">
                     <?php echo $repo["name"] ?>
                 </a>
 
-                <p class='fc-medium fw-light m-tb-x05 text-center'>
+                <p class="">
                     <?php echo $repo["description"] ?>
                     <a href="<?php $repo["svn_url"] ?>"
-                    class='fc-accent-bright fs-medium center'> 
-                    icon
+                    class=""> 
+                    Go to repository
                     </a>
                 </p>
 
                 <ul>
-                    <li class='p-x05 fs-smaller fc-medium text-center'>
+                    <li class="">
                         <?php $date = strtotime($repo["created_at"])?>
                         <?php echo date('Y/M/d', $date);?>
                     </li>
                 </ul>
                 <ul>
-                    <li class='p-x05 fs-smaller fc-medium text-center'>
+                    <li class="">
                         <?php foreach ($repo["topics"] as $topic) {
                         echo $topic;}
                         ?>       
@@ -104,13 +99,13 @@ function render_retrieved_github_repos( $attributes, $content ) {
 
                 </ul>
 
-                <section class='section-flex-row-center'>
-                    <p class='p-x05 fs-smaller fc-medium text-center'>
-                        <?php echo $repo["stargazers_count"]?>
+                <section class="">
+                    <p class="">
+                        <?php echo $repo["stargazers_count"]?> stars
                     </p>
 
-                    <p class='p-x05 fs-smaller fc-medium text-center'>
-                        <?php echo $repo["forks_count"]?>
+                    <p class="">
+                        <?php echo $repo["forks_count"]?> forks
                     </p>
 
                 </section>

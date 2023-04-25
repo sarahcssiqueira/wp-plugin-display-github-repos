@@ -1,7 +1,3 @@
-@import './editor.scss';
+/* Imports */
 
-
-* {
-    background-color: rgb(153, 218, 255);
-    color: purple;
-}
+@import './editor.scss', './frontend.scss';

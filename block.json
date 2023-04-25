@@ -5,7 +5,7 @@
     "name": "retrievegithub/githubportfolio",
     "description": "A block to retrieve your public github repositories and show them as a portfolio",
     "version": "0.0.1",
-    "icon": "networking",
+    "icon": "share",
     "category": "design",
     "attributes": {
         "githubuser": { 
@@ -14,6 +14,6 @@
     },
     "keywords": [ "basic", "model" ],
     "editorScript": "file:./build/index.js",
-    "editorStyle": "file:./styles/editor.css",
+    "editorStyle": "file:./src/styles/editor.css",
 	"style": "file:./src/styles/style.css"
 }

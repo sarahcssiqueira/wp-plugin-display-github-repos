@@ -1,13 +1,12 @@
-.setUpYourGitHubURL {
-  background: blueviolet;
-  background-color: green;
-}
-
-.color {
-  color: blueviolet;
+/* Imports */
+.edit {
+  color: black;
 }
 
 * {
-  background-color: rgb(153, 218, 255);
-  color: purple;
+  color: black;
+}
+
+a {
+  color: #6f2232;
 }/*# sourceMappingURL=style.css.map */
