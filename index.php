@@ -2,6 +2,7 @@
 /**
  * Plugin Name:       Retrieve Github Repos Block
  * Author:            Sarah Siqueira
+ * Author URI:        sarahjobs.com
  * Description:       Gutenberg block to retrieve your public github repositories and show them as a portfolio
  * Version:           0.1.0
  * Requires at least: 5.9
@@ -14,10 +15,22 @@
 
 // Register //
 function retrieve_github_block() {
-    register_block_type(__DIR__ ,
-    array(
+    register_block_type(
+        __DIR__ ,
+        [
+            'attributes'      => [
+              'githubuser' => [
+                'type'    => 'string',
+              ],
+            ],
+           /* 'render_callback' => function( $attributes, $content ) {
+                $github_user = esc_html( $attributes['githubuser'] );
+                return "$github_user";
+            },*/
+
         'render_callback' => 'render_retrieved_github_repos',
-    ) );
+        ]
+    );
 }
 
 add_action( 'init', 'retrieve_github_block' );
@@ -28,11 +41,12 @@ add_action( 'init', 'retrieve_github_block' );
 //Render dynamic block //
 function render_retrieved_github_repos( $attributes, $content ) {
 
+    //$github_user = esc_html( $attributes['githubuser'] );
     // $api_key = getenv('GITHUBTOKEN');
 
     $headers = [
         "User-Agent: Github Gutenberg Block",
-        "Authorization: token $api_key"
+        //"Authorization: token $api_key"
     ];
 
     $curl = curl_init();
@@ -43,7 +57,7 @@ function render_retrieved_github_repos( $attributes, $content ) {
     ]);
 
     
-    $username = 'sarahcssiqueira';
+    $username = $attributes['githubuser'];
 
     curl_setopt($curl, CURLOPT_URL, ("https://api.github.com/users/" . $username . "/repos"));
 
@@ -69,7 +83,8 @@ function render_retrieved_github_repos( $attributes, $content ) {
 
     <?php foreach ( $repositories as $repo ): ?>
         <p><?php echo $repo["name"]; ?></p>
-
+        <?php $github_user = esc_html( $attributes['githubuser'] );
+                //echo "$github_user";?>
         <article class="article">
             <a href="<?php echo $repo["svn_url"]?>"
                 class="fc-accent fw-bold text-center">
