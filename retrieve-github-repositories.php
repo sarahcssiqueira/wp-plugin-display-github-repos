@@ -5,7 +5,7 @@
  * Author URI:        sarahjobs.com
  * Description:       Gutenberg block to retrieve your public github repositories and show them as a portfolio. Used for millions of developers around the globe, Github does not require a presentation. Easily display your public Github repositories, just set up your github username below.
  * Version:           0.2.0
- * Requires at least: 5.9
+ * Requires at least: 5.4
  * Requires PHP:      7.0
  * License:           ''
  * License URI:       ''
@@ -13,11 +13,12 @@
  * 
  */
 
-/** Prevent public user to directly access your .php files through URL **/
+/** Exit if accessed directly **/
 if( ! defined( 'ABSPATH' ) ) exit;
 
 class RetrieveGithubBlock {
 
+    /** Can be considered a weak solution to handle with hooks cause can misunderstands the role of the constructor, but in this case I believe it's ok. **/
     function __construct() {
       add_action('init', array($this, 'startBlock'));
     }
@@ -59,7 +60,8 @@ class RetrieveGithubBlock {
         $headers = [
             "User-Agent: Github Gutenberg Block",
             ];
-
+        
+        /* Get the username input */
         $username = $attributes['githubuser'];
 
         $curl = curl_init();
@@ -84,6 +86,7 @@ class RetrieveGithubBlock {
             $response;
         }
 
+        /* Decode the response */
         $repositories = json_decode( $response, true );
 
         ob_start(); ?>
@@ -91,42 +94,23 @@ class RetrieveGithubBlock {
         
         <?php foreach ( $repositories as $repo ): ?>
         
-            <article class="">
+            <div class="">
+
+                <a href="<?php echo $repo["svn_url"]?>"class=""> <?php echo $repo["name"] ?></a>
+
+                <p class=""><?php echo $repo["description"] ?><a href="<?php $repo["svn_url"] ?>"class="">Go to repository</a></p>
+
+                <p class=""><?php $date = strtotime($repo["created_at"])?><?php echo date('Y/M/d', $date);?></p>
                 
-                <a 
-                    href="<?php echo $repo["svn_url"]?>"
-                    class="">
-                    <?php echo $repo["name"] ?>
-                </a>
+                <p class=""><?php foreach ($repo["topics"] as $topic) {echo $topic;}?></p>
 
-                <p class="">
-                    <?php echo $repo["description"] ?>
-                    <a href="<?php $repo["svn_url"] ?>"
-                    class=""> 
-                    Go to repository
-                    </a>
-                </p>
-                <p class="">
-                        <?php $date = strtotime($repo["created_at"])?>
-                        <?php echo date('Y/M/d', $date);?>
-                </p>
-                
-                <p class="">
-                    <?php foreach ($repo["topics"] as $topic) {
-                    echo $topic;}
-                    ?>       
-                </p>
-                <p class="">
-                    <?php echo $repo["stargazers_count"]?> stars
-                </p>
+                <p class=""><?php echo $repo["stargazers_count"]?> stars</p>
 
-                <p class="">
-                    <?php echo $repo["forks_count"]?> forks
-                </p>
+                <p class=""><?php echo $repo["forks_count"]?> forks </p>
 
-            </article>
+            </div>
             
-        <?php endforeach; ?>
+        <?php endforeach; ?> 
 
     <?php return ob_get_clean();
 
