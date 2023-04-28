@@ -12,7 +12,7 @@
             "type": "string" 
         }
     },
-    "keywords": [ "basic", "model" ],
+    "keywords": [ "github", "display" ],
     "editorScript": "file:./build/index.js",
     "editorStyle": "file:./src/styles/editor.css",
 	"style": "file:./src/styles/style.css"
