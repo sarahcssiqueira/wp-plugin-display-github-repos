@@ -3,3 +3,4 @@
 
 #Api Keys
 .env
+/vendor/

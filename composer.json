@@ -1,0 +1,18 @@
+{
+    "name": "retrievegithub/githubportfolio",
+    "description": "A block to retrieve your public github repositories and show them as a portfolio",
+    "type": "wordpress-plugin",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Retrievegithub\\Githubportfolio\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Sarah Siqueira",
+            "email": "sarahcosiqueira@gmail.com"
+        }
+    ],
+    "require": {}
+}
