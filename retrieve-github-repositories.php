@@ -65,41 +65,16 @@ class RetrieveGithubBlock
      */
     function render_retrieved_github_repos( $attributes, $content )
     {
-        $headers = [
-            "User-Agent: Github Gutenberg Block",
-            ];
             
-        /* Get the username input */
+        // Get the username input 
         $username = $attributes['githubuser'];
-
-        $curl = curl_init();
-
-        curl_setopt_array(
-            $curl, [
-            CURLOPT_HTTPHEADER => $headers,
-            CURLOPT_RETURNTRANSFER => true
-                ]
-        );
-            
-        curl_setopt($curl, CURLOPT_URL, ("https://api.github.com/users/" . $username . "/repos"));
-
-        $response = curl_exec($curl);
-
-        $err = curl_error($curl);
-
-        curl_close($curl);
         
-        if ($err) {
-            echo "cURL Error #:" . $err;
-        } else {
-            $response;
-        }
+        $response = wp_remote_retrieve_body( wp_remote_get("https://api.github.com/users/" . $username . "/repos") );
 
         /* Decode the response */
         $repositories = json_decode($response, true);
 
         ob_start(); ?>
-
             
             <?php foreach ( $repositories as $repo ): ?>
             
