@@ -4,7 +4,7 @@
     "title": "Retrieve Github Repos Block",
     "name": "retrievegithub/githubportfolio",
     "description": "A block to retrieve your public github repositories and show them as a portfolio",
-    "version": "0.0.1",
+    "version": "1.0.0",
     "icon": "share",
     "category": "design",
     "attributes": {
