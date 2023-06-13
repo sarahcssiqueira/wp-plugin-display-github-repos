@@ -1,16 +1,19 @@
 <?php
 /**
- * Plugin Name:       Retrieve Github Repositories Block
- * Author:            Sarah Siqueira
- * Author URI:        sarahjobs.com
- * Description:       Gutenberg block to retrieve your public github repositories and show them as a portfolio. Used for millions of developers around the globe, Github does not require a presentation. Easily display your public Github repositories, just set up your github username below.
- * Version:           1.0.0
- * Requires at least: 5.4
- * Requires PHP:      7.0
- * License:           ''
- * License URI:       ''
- * Text Domain:       github portfolio
- */
+* Plugin Name:       Retrieve Github Repositories Block
+* Plugin URI:        https://sarahjobs.com/wordpress/plugins/retrieve-git-repos 
+* Description:       Gutenberg block to retrieve your public github repositories and show them as a portfolio. Used for millions of developers around the globe, Github does not require a presentation. Easily display your public Github repositories, just set up your github username below.
+* Version:           1.0.0
+* Requires at least: 5.4
+* Requires PHP:      7.4
+* Author:            Sarah Siqueira
+* Author URI:        https://sarahjobs.com/about
+* License:           GPLv2 or later
+* License URI:       https://www.gnu.org/licenses/gpl.html
+* Text Domain:       retrieve-git-repos
+* Domain Path:       /languages
+* Update URI:        https://sarahjobs.com/wordpress/plugins/retrieve-git-repos/update
+*/
 
 /**
  * Exit if accessed directly 
